@@ -1,0 +1,383 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #000;
+  overflow-x: hidden;
+}
+
+.hero {
+  background: url('img/tahun1970.jpg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  padding: 0 20px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 60px;
+  font-weight: 900;
+}
+
+.hero-content p {
+  font-size: 20px;
+  font-style: italic;
+  color: #f0f0f0;
+  margin-top: 10px;
+}
+
+.hero-description {
+  margin-top: 30px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+.sticky-title {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  z-index: 1000;
+  text-align: center;
+  padding: 20px 0 50px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.sticky-title h1 {
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.sticky-title h2 {
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.progress-bar-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: #ccc;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #000;
+  width: 0%;
+  transition: width 0.2s ease-out;
+}
+
+.title-space { height: 140px; }
+
+.how-it-works-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 100px auto 60px;
+  max-width: 1000px;
+  opacity: 0;
+  animation: fadeInOnce 1.2s ease forwards;
+}
+
+.how-it-works {
+  text-align: left;
+  flex: 1;
+}
+
+.how-it-works h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.how-it-works p {
+  font-size: 18px;
+  font-style: italic;
+  color: #444;
+  line-height: 1.6;
+}
+
+.scroll-guide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 120px;
+  margin-top: 8px;
+}
+
+.scroll-line {
+  width: 4px;
+  height: 100px;
+  background: black;
+  border-radius: 2px;
+}
+
+.scroll-dot-anim {
+  position: absolute;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  background: black;
+  border-radius: 50%;
+  animation: scrollDown 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollDown {
+  0% { top: 0; opacity: 1; }
+  100% { top: 100px; opacity: 0.4; }
+}
+
+@keyframes fadeInOnce {
+  from { opacity: 0; transform: translateY(60px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =================== Fade-in/out with transition =================== */
+.timeline-entry {
+  position: relative;
+  margin: 160px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timeline-entry.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-entry.fade-out {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+/* ===================================================================== */
+.timeline-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 100px 0;
+  position: relative;
+}
+
+.timeline {
+  position: relative;
+  z-index: 1;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: black;
+  z-index: 0;
+}
+
+.timeline-hole {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 52px;
+  background: white;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.year-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 6px 14px;
+  font-weight: bold;
+  font-size: 24px;
+  color: black;
+  z-index: 3;
+  box-shadow: 0 0 0 4px white;
+}
+
+.content-left {
+  width: 40%;
+  margin-left: calc(50% - 867px - 2px);
+  padding: 10px;
+  text-align: left;
+  z-index: 4;
+}
+
+.content-left h3 {
+  font-size: 38.5px;
+  margin-bottom: 12px;
+}
+
+.content-left p {
+  font-size: 25px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 18px;
+}
+
+.btn-link {
+  display: inline-block;
+  padding: 16px 28px;
+  font-size: 20px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.btn-link:hover {
+  background: #222;
+}
+
+.content {
+  width: 40%;
+  margin-right: calc(50% - 867px - 2px);
+  padding: 10px;
+  z-index: 4;
+}
+
+.image-wrapper {
+  width: 100%;
+  max-width: 100%;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+.scroll-dot {
+  width: 14px;
+  height: 14px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  transition: top 0.1s ease-out;
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+#backToTop:hover {
+  background-color: #f0f0f0;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 40px;
+  }
+  .hero-content p {
+    font-size: 16px;
+  }
+  .hero-description {
+    font-size: 14px;
+  }
+  .sticky-title h1 {
+    font-size: 24px;
+  }
+  .sticky-title h2 {
+    font-size: 16px;
+  }
+  .how-it-works h2 {
+    font-size: 24px;
+  }
+  .how-it-works p {
+    font-size: 16px;
+  }
+  .timeline-entry {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 80px 0;
+  }
+  .timeline::before {
+    display: none;
+  }
+  .timeline-hole {
+    display: none;
+  }
+  .year-label {
+    display: none;
+  }
+  .content-left, .content {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 10px;
+  }
+  .content-left {
+    order: 3;
+    margin-top: 20px;
+  }
+  .content {
+    order: 2;
+  }
+  .scroll-dot {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+  }
+  .image-wrapper img {
+    height: 200px;
+  }
+}
